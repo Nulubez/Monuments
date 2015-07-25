@@ -1,0 +1,41 @@
+<dom-module id="monuments-app">
+
+   <link rel="stylesheet" href="monuments-app.css" />
+  
+	<link rel="import" href="/bower_components/paper-header-panel/paper-header-panel.html">
+	<link rel="import" href="/bower_components/paper-toolbar/paper-toolbar.html">
+	<link rel="import" href="/bower_components/iron-icons/iron-icons.html">
+	<link rel="import" href="/bower_components/paper-menu/paper-menu.html">
+	<link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
+
+	<link rel="import" href="/bower_components/firebase-element/firebase.html">
+	<link rel="import" href="/bower_components/firebase-element/firebase-login.html">
+
+	<!-- <link rel="import" href="/bower_components/paper-dropdown/paper-dropdown.html">	
+	<link rel="import" href="/bower_components/paper-menu-button/paper-menu-button.html">
+	<link rel="import" href="/bower_components/paper-item/paper-item.html"> -->
+
+  <template>
+	    <h2>MONUMENTS APP</h2>
+	    <paper-header-panel>
+	    	<div class="paper-header">
+	    	<paper-toolbar>
+		    	<div flex> Firebase Q&amp;A</div>
+		    	<paper-menu halign="right">
+		    		<paper-icon-button icon="person"></paper-icon-button>
+		    		<paper-menu class="menu">
+		    			<paper-item on-click="login">Login</paper-item>
+		    			<paper-item on-click="logout">Logout</paper-item>
+		    		</paper-menu>
+		    	</paper-menu>
+	    	</paper-toolbar>
+    	</div>
+
+    	<div class="content">
+    	
+    	</div>
+    </paper-header-panel>
+  </template>
+
+  <script src="monuments-app.js"></script>
+</dom-module>

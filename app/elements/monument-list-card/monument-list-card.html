@@ -1,0 +1,93 @@
+<dom-module id="monument-list-card">
+  <style>
+	  paper-material {
+	    border-radius: 2px;
+	    height: 100%;
+	    padding: 16px 16px 8px 16px;
+	    width: calc(98.66% - 16px);
+	    background: white;
+	  }
+	  .monument-list-card-container {
+	  	margin: 48px 64px;
+	  }
+
+	  .monument-list-card-header{
+	  	background-color: var(--default-primary-color);
+	  }
+
+	  .monument-list-card-content {
+	  	overflow: auto;
+	  	background-color: var(--light-primary-color);
+	  }
+
+	  .top {
+	  	color: var(--text-primary-color);
+	  	text-align: center;	  	
+	  }
+
+	  .bottom {
+
+	  }
+
+	  #bottomLeft {
+	  	float: left;
+	  	width: 30%;
+	  	margin-right: 8px;
+	  }
+
+	  #bottomRight {
+	  	float: left;
+	  	width: 65%;
+	  	text-align: left;
+	  }
+  </style>
+
+  <template>
+  	<div class="monument-list-card-container">
+		  <paper-material elevation="1" class="monument-list-card-header">
+		  	<section class="top">
+		  		<div class="paper-header"><h2>{{title}}</h2></div>
+		  	</section>
+		  </paper-material>
+
+
+		  <paper-material elevation="1" class="monument-list-card-content">
+		  	<section class="middle content">
+		  		<paper-item><b>Total Time:</b>_<span>{{totalTime}}</span>minutes</paper-item>
+		  		<paper-item><b>Date Create:</b><span>{{createdAt}}</span></paper-item>
+		  	</section>
+
+		  	<section class="bottom content">
+		  		<paper-button id="bottomLeft" on-click="showDetailsDialog">Details</paper-button>
+		  		<monument-detail-dialog id="monumentDialog"></monument-detail-dialog>
+		  		<paper-button id="bottomRight">View</paper-button>
+		  	</section>	
+		  </paper-material>
+		</div>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: 'monument-list-card',
+
+    properties: {
+    	title: {
+    		type: String,
+    		value: "Monument Name"
+    	},
+    	totalTime: {
+    		type: Number,
+    		value: 120
+    	},
+    	createdAt: {
+    		type: String,
+    		value: " July 21, 1990 "
+    	}
+    },
+
+    showDetailsDialog: function(){
+    	var dialog = this.$.monumentDialog;
+    	dialog.toggle();
+    }
+  });
+</script>

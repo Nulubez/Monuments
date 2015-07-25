@@ -1,0 +1,31 @@
+<dom-module id="structure-container">
+	<link rel="stylesheet" href="structure-container.css" />
+  <template>   
+
+    <div id="main">
+	    <div id="buttons">
+		    <block-icon-buttons></block-icon-buttons>
+		    <cloud-icon-buttons></cloud-icon-buttons>
+		    <div id="currentIcons">
+		    	<h2>Current Icons</h2>
+		    	<span>
+		    		<h3>Block</h3>
+		    		<iron-icon icon={{blockIcon}}></iron-icon>
+		    	</span>
+		    	<span>
+		    		<h3>Cloud</h3>
+		    		<iron-icon icon={{cloudIcon}}></iron-icon>
+		    	</span>
+		    </div>
+		  </div>
+
+
+	    <div></div>
+	    <structure-creator id="structureCreator"></structure-creator>	    
+	    <structure-editor id="structureEditor"></structure-editor>
+	    <structure-viewer id="structureViewer"></structure-viewer>
+	 	</div>
+	 </template>
+
+  <script src="structure-container.js"></script>
+</dom-module>

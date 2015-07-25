@@ -1,0 +1,87 @@
+<dom-module id="monument-recent-card">
+  <style>
+    paper-material {
+      border-radius: 2px;
+      height: 100%;
+      padding: 16px 16px 8px 16px;
+      width: calc(98.66% - 16px);
+      background: white;
+    }
+    iron-image {
+      height:100px;
+      width: 100px;
+      float: left;
+    }
+    .image {
+      height: 100px;
+      width: 100px;
+      float: left;
+    }
+    .monument-recent-card-container {
+      margin: 48px 64px;
+    }
+    .monument-recent-card-header{      
+      color: var(--text-primary-color);
+      text-align: center;    
+      background-color: var(--default-primary-color);
+    }
+    .monument-recent-card-content {
+      overflow: auto;
+      background-color: var(--light-primary-color);
+    }
+    .bottomRight {
+      float: right;
+      text-align: right;
+    }
+  </style>
+
+  <template>
+    <div class="monument-recent-card-container">
+      <paper-material elevation="1" class="monument-recent-card-header">
+        <div class="paper-header"><h2>{{title}}</h2></div>
+      </paper-material>
+
+      <paper-material elevation="1" class="monument-recent-card-content">
+
+        <section class="tags content">
+          <paper-tags-input enableadd="true" enableremove="false"></paper-tags-input>
+        </section>
+        <br>
+
+        <section class="image content">
+          <iron-image src={{imageSource}} sizing="contain"></iron-image>
+        </section>
+
+        <section class="bottomRight content">
+          <paper-item><b>Block Value:</b>_<span>{{blockValue}}</span>_minutes</paper-item>
+          <input is="iron-input" type="number">
+        blocks
+          <paper-icon-button icon="add-box"></paper-icon-button>
+        </section>  
+      </paper-material>
+    </div>
+
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: 'monument-recent-card',
+
+    properties: {
+      title: {
+        type: String,
+        value: "Monument Name"
+      },
+      blockValue:{
+        type: Number,
+        value: 30
+      },
+      imageSource: {
+        type: String,
+        value: "../../images/touch/icon-128x128.png"
+      }
+
+    }
+
+  });
+</script>

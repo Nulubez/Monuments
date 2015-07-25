@@ -1,0 +1,63 @@
+<dom-module id="monument-detail-dialog">
+  <style>
+  </style>
+
+  <template>
+  <paper-dialog with-backdrop="true" id="dialog">
+  	<h2>{{title}}</h2>
+  	<p><b>Date Created:</b> <span>{{createdAt}}</span></p>
+  	<p><b>Tags:</b> </p>
+  	<p><b>Description:</b> <span>{{description}}</span></p>
+  	<p><b>Total Blocks:</b> <span>{{totalBlocks}}</span></p>
+    <p><b>Block Time:</b> <span>{{blockTime}}</span></p>
+  	<p><b>Total Time:</b> <span>{{totalBlockTime}}</span>hours</p>
+  	<p><b>Target:</b> //Shows Date, and amount if applicable</p>
+
+
+  	<div class="buttons">
+	    <paper-button dialog-dismiss>Okay</paper-button>
+  	</div>
+
+  </paper-dialog>
+
+
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: 'monument-detail-dialog',
+
+    properties:{
+      title:{
+        type: String,
+        value: "Monument Name"
+      },
+      createdAt: {
+        type: String,
+        value: "July 21, 1990"
+      },
+      description: {
+        type: String,
+        value: "Cottleston Cottleston Cottleston pie, a fly can't bird, but a bird can fly. Tell me a riddle and I'll reply, Cottleston Cottleston Cottleston pie."
+      },
+      totalBlocks: {
+        type: Number,
+        value: 20
+      },
+      blockTime: {
+        type: Number,
+        value: 30
+      },
+      totalBlockTime: {
+        type: Number,
+        value: 10
+      }
+    },
+
+    toggle: function() {
+        this.$.dialog.toggle();
+        console.log("inside Dialog")
+      }
+
+  });
+</script>

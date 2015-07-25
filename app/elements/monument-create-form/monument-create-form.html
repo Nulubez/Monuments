@@ -1,0 +1,181 @@
+<dom-module id="monument-create-form">
+  <style>
+    paper-material {
+      border-radius: 2px;
+      height: 100%;
+      padding: 16px 30px 16px 30px;
+      width: calc(98.66% - 16px);
+      background: white;
+    }
+    .monument-create-form-container{
+      margin: 48px 64px;
+    }
+    .monument-create-form-header{      
+      color: var(--text-primary-color);
+      text-align: center;    
+      background-color: var(--default-primary-color);
+    }
+    .monument-create-form-content {
+      overflow: auto;
+      background-color: var(--light-primary-color);
+    }
+  </style>
+
+  <template>
+    <div class="monument-create-form-container">
+      <paper-material elevation="1" class="monument-create-form-header">
+        <div class="paper-header"><h2>Create Monument</h2></div>
+      </paper-material>
+
+  	  <paper-material elevation="1" class="monument-create-form-content">
+        <form is="iron-form" id="form" method="post" action="/form/handler">
+    	  	<paper-input name="name" label="Name"></paper-input>
+          <paper-tags-input></paper-tags-input>
+
+          <br>
+
+          <label><b>Description</b></label>
+          <paper-input autogrow=true type="text"></paper-input>
+
+          <label><b>Shape:</b></label>
+          <select name="shapes">
+            <option value="Pyramid">Pyramid</option>
+            <option value="Box">Box</option>
+            <option value="Spherical">Spherical</option>
+          </select>
+
+          <br>
+          <br>
+
+          <label><b>Block Duration:</b></label>
+          <input is="iron-input" type="number">
+          minutes
+
+          <br>
+          
+          <paper-radio-group id="creationRadioGroup">
+            <paper-radio-button id="newRadio" name="new" on-click="changeCreationRadioTemplate">New</paper-radio-button>
+            <paper-radio-button id="superRadio" name="super" on-click="changeCreationRadioTemplate">Super Structure</paper-radio-button>
+          </paper-radio-group>
+
+          <br>
+
+          <template id="newCreationTemplate" is="dom-if" if={{newChecked}}>
+            
+            <paper-radio-group id="targetRadioGroup">
+              <paper-radio-button id="deadlineRadio" name="deadline" on-click="changeTargetRadioTemplate">Deadline</paper-radio-button>
+              <paper-radio-button id="recurringRadio" name="super" on-click="changeTargetRadioTemplate">Recurring</paper-radio-button>
+              <paper-radio-button id="noTargetRadio" name="noTarget" on-click="changeTargetRadioTemplate">No Target</paper-radio-button>
+            </paper-radio-group>
+
+            <template is="dom-if" if={{deadlineChecked}}>
+              <h4>Deadline</h4>
+              <span>
+                <label><b>Target Time:</b></label>
+                <input is="iron-input" size="1" maxlength="6" type"number">
+                minutes
+              </span>
+              <br>
+              <br>   
+              
+              <paper-dialog heading="Target Completion Date" id="dateDialog">
+                <h4>Choose Completion Date</h4>
+                <paper-date-picker></paper-date-picker>
+              </paper-dialog>
+            </template>
+
+            <template is="dom-if" if={{recurringChecked}}>
+              <h4>Recurring Targets</h4>
+              <span>
+                <label><b>Target Time:</b></label>
+                <input is="iron-input" size="1" maxlength="6" type"number">
+                minutes
+              </span>
+              <br>
+              <br>  
+              <paper-checkbox id="dailyCheckbox">Daily</paper-checkbox>
+              <paper-checkbox id="weeklyCheckbox">Weekly</paper-checkbox>
+              <paper-checkbox id="monthlyCheckbox">Monthly</paper-checkbox>
+            </template>
+
+            <template is="dom-if" if={{noTargetChecked}}>
+            </template>
+          </template>
+
+          <template id="superCreationTemplate" is="dom-if" if={{superChecked}}>
+            <paper-button raised>Choose Monuments</paper-button>
+            <h4>Monuments to Add:</h4>
+            <paper-item>Monument#1</paper-item>
+            <paper-item>Monument#2</paper-item>
+            <paper-item>Monument#3</paper-item>
+            <paper-item>Monument#4</paper-item>
+            <paper-item>Monument#5</paper-item>
+          </template>        
+          <br>
+          <br>
+          <br>
+    	  	<paper-button raised onclick="submitForm()">Submit</paper-button>
+    	  </form> 
+      </paper-material>
+    </div>
+  </template>
+
+</dom-module>
+<script>
+  Polymer({
+    is: 'monument-create-form',
+
+    properties: {
+      newChecked: {
+        type: Boolean
+      },
+      superChecked: {
+        type: Boolean
+      },
+      deadlineChecked: {
+        type: Boolean
+      },
+      recurringChecked: {
+        type: Boolean
+      },
+      noTargetChecked: {
+        type: Boolean
+      }
+    },
+
+    toggleDateDialog: function() {
+      this.$$("#dateDialog").toggle;
+    },
+
+    changeTargetRadioTemplate: function() {
+      var deadlineRadio = this.$$("#deadlineRadio");
+      var recurringRadio = this.$$("#recurringRadio");
+      var noTargetRadio = this.$$("#noTargetRadio");
+      
+      if (deadlineRadio.checked){
+        this.deadlineChecked = true;
+        this.recurringChecked = false;
+        this.noTargetChecked = false;
+      } else if (recurringRadio.checked) {
+        this.deadlineChecked = false;
+        this.recurringChecked = true;
+        this.noTargetChecked = false;
+      } else {
+        this.deadlineChecked = false;
+        this.recurringChecked = false;
+        this.noTargetChecked = true;
+      }
+    },
+
+    changeCreationRadioTemplate: function() {
+      if (this.$.newRadio.checked){
+        this.newChecked = true;
+        this.superChecked = false;
+      } else {
+        this.newChecked= false;
+        this.superChecked = true;
+      }
+    }
+
+  });
+</script>

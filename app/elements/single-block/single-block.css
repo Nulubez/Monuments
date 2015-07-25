@@ -1,0 +1,7 @@
+:host {
+  display: inline;
+}
+paper-button {
+	min-width: 0.01em; 
+	margin: 0 0.01em;
+}

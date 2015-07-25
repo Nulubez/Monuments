@@ -1,0 +1,27 @@
+<dom-module id="paper-button-link">
+  <style>
+  </style>
+
+  <template>
+
+  <paper-icon-button icon="[[icon]]" buttonLink="[[buttonlink]]" on-click="goToLink"></paper-button>
+
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: 'paper-button-link',
+
+    properties: {
+			icon: {
+				type: String
+			}
+		},
+
+		goToLink: function(e) {
+			page(this.buttonlink);
+			e.preventDefault();
+		}
+
+  });
+</script>

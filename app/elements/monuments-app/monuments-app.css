@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  font-family: RobotoDraft, "Helvetica Neue", Helvetica, Arial;
+  height: 100%;
+}
+
+paper-header-panel {
+	height: 100%;
+}
+
+paper-toolbar {
+	background: none;
+}
+
+.paper-header {
+	 height: 60px;
+  line-height: 60px;
+  font-size: 18px;
+  padding: 0 10px;
+  background-color: #3F51B5;
+  color: #fff;
+  transition: height 0.2s;
+}
+
+.paper-header paper-item {
+  color: #333;
+}
+
+
+.content {
+  background: #fff;
+}

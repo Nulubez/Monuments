@@ -1,0 +1,12 @@
+:host {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+#main{
+	outline: black solid medium;
+}
+
+h2 {
+	outline: black solid medium;
+}

@@ -1,0 +1,35 @@
+<dom-module id="pyramid-creator">
+	<link rel="stylesheet" href="pyramid-creator.css" />
+  <template>
+    
+    
+    <div id="main">
+	    <div id="buttons">
+		    <block-icon-buttons></block-icon-buttons>
+		    <cloud-icon-buttons></cloud-icon-buttons>
+		    <div id="currentIcons">
+		    	<h2>Current Icons</h2>
+		    	<span>
+		    		<h3>Block</h3>
+		    		<iron-icon icon={{blockIcon}}></iron-icon>
+		    	</span>
+		    	<span>
+		    		<h3>Cloud</h3>
+		    		<iron-icon icon={{cloudIcon}}></iron-icon>
+		    	</span>
+		    </div>
+		  </div>
+
+	    <input  is="iron-input" type="range" id="num" min="0" max="100" bind-value="{{blockCount}}"></input>
+	    You've entered <b>{{blockCount}}</b>
+	    
+	    <button on-click="addOne"><b>+</b></button>
+	    <button on-click="testButton"><b>Test Function</b></button>
+	    <button on-click="main">Create Pyramid</button>
+	 
+	 		<div id="structureViewer"></div>
+	 	</div>
+	 </template>
+
+  <script src="pyramid-creator.js"></script>
+</dom-module>

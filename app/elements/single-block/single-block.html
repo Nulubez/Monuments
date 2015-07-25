@@ -1,0 +1,15 @@
+<dom-module id="single-block" >
+<link rel="stylesheet" href="single-block.css" />
+
+  <template>
+
+    <paper-button id="paperButton" raised={{isActive}} on-click=clickFunction>
+    	<iron-icon icon="[[iconName]]"></iron-icon>
+    </paper-button>
+
+    <paper-toast id="toast1"></paper-toast>
+
+  </template>
+  <script src="single-block.js"></script>
+</dom-module>
+<iron-icon id="icon" src="[[src]]" icon="[[icon]]" alt$="[[alt]]"></iron-icon>

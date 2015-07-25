@@ -1,0 +1,32 @@
+:host {
+  display: block;
+}
+
+#main {
+	outline: black solid medium;
+}
+
+span {
+	display: inline-block;
+	outline: black solid medium;
+	margin-left: 10px;
+}
+
+#currentIcons {
+	display: inline-block;
+	
+	margin-top: 10px;
+}
+
+#structureViewer {
+	margin-top: 20px;
+}
+
+#iconButtons{
+	margin-left: 10px;
+}
+
+#buttons {
+	margin-left: 10px;
+	display: inline-block;
+}

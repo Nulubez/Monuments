@@ -1,0 +1,14 @@
+<dom-module id="structure-creator">>
+	
+  <link rel="stylesheet" href="structure-creator.css" />
+  <template>
+
+    <h2>Structure creator</h2>
+    <input  is="iron-input" type="range" id="num" min="0" max="100" bind-value="{{blockCount}}"></input>
+	    You've entered <b>{{blockCount}}</b>
+    <button on-click="main">CREATE!</button>
+
+  </template>
+
+  <script src="structure-creator.js"></script>
+</dom-module>
